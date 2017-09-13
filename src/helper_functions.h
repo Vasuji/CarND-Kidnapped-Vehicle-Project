@@ -14,6 +14,8 @@
 #include <vector>
 #include "map.h"
 
+
+
 /*
  * Struct representing one position/control measurement.
  */
@@ -22,6 +24,9 @@ struct control_s {
 	double velocity;	// Velocity [m/s]
 	double yawrate;		// Yaw rate [rad/s]
 };
+
+
+
 
 /*
  * Struct representing one ground truth position.
@@ -33,6 +38,9 @@ struct ground_truth {
 	double theta;	// Global vehicle yaw [rad]
 };
 
+
+
+
 /*
  * Struct representing one landmark observation measurement.
  */
@@ -43,6 +51,11 @@ struct LandmarkObs {
 	double y;			// Local (vehicle coordinates) y position of landmark observation [m]
 };
 
+
+
+
+
+
 /*
  * Computes the Euclidean distance between two 2D points.
  * @param (x1,y1) x and y coordinates of first point
@@ -52,6 +65,9 @@ struct LandmarkObs {
 inline double dist(double x1, double y1, double x2, double y2) {
 	return sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
 }
+
+
+
 
 inline double * getError(double gt_x, double gt_y, double gt_theta, double pf_x, double pf_y, double pf_theta) {
 	static double error[3];
@@ -64,6 +80,10 @@ inline double * getError(double gt_x, double gt_y, double gt_theta, double pf_x,
 	}
 	return error;
 }
+
+
+
+
 
 /* Reads map data from a file.
  * @param filename Name of file containing map data.
@@ -109,6 +129,10 @@ inline bool read_map_data(std::string filename, Map& map) {
 	return true;
 }
 
+
+
+
+
 /* Reads control data from a file.
  * @param filename Name of file containing control measurements.
  * @output True if opening and reading file was successful
@@ -151,6 +175,11 @@ inline bool read_control_data(std::string filename, std::vector<control_s>& posi
 	}
 	return true;
 }
+
+
+
+
+
 
 /* Reads ground truth data from a file.
  * @param filename Name of file containing ground truth.
@@ -195,6 +224,12 @@ inline bool read_gt_data(std::string filename, std::vector<ground_truth>& gt) {
 	return true;
 }
 
+
+
+
+
+
+
 /* Reads landmark observation data from a file.
  * @param filename Name of file containing landmark observation measurements.
  * @output True if opening and reading file was successful
@@ -236,4 +271,13 @@ inline bool read_landmark_data(std::string filename, std::vector<LandmarkObs>& o
 	return true;
 }
 
+
+
 #endif /* HELPER_FUNCTIONS_H_ */
+
+
+
+
+
+
+
